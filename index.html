@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sadaqah Cases legal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F4EF; --surface:#FFFFFF; --fg:#22261E; --fg-muted:#5B6154;
+    --accent:#0E6B54; --accent-strong:#0A4F3E; --border:#E1DED4;
+    --font-display:'Source Serif 4', Georgia, serif;
+    --font-body:'Public Sans', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#141F1A; --surface:#1B2A23; --fg:#ECEEE7; --fg-muted:#A6AE9F;
+      --accent:#4FC79E; --accent-strong:#72DBB4; --border:#2B3B33;
+    }
+  }
+  *{ box-sizing:border-box; }
+  html, body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--fg); font-family:var(--font-body);
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    padding:24px;
+  }
+  .card{ max-width:480px; width:100%; }
+  .eyebrow{
+    font-size:13px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 10px;
+  }
+  h1{
+    font-family:var(--font-display); font-weight:600; font-size:32px;
+    margin:0 0 12px; color:var(--fg);
+  }
+  p{ color:var(--fg-muted); line-height:1.6; margin:0 0 28px; }
+  .links{ display:flex; flex-direction:column; gap:12px; }
+  a.link{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:16px 20px; text-decoration:none; color:var(--fg); font-weight:500;
+  }
+  a.link span.arrow{ color:var(--accent-strong); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <p class="eyebrow">Sadaqah Cases</p>
+    <h1>Legal</h1>
+    <p>Privacy policy and terms of service for the Sadaqah Cases mobile app.</p>
+    <div class="links">
+      <a class="link" href="privacy-policy.html">Privacy policy <span class="arrow">→</span></a>
+      <a class="link" href="terms-of-service.html">Terms of service <span class="arrow">→</span></a>
+    </div>
+  </div>
+</body>
+</html>

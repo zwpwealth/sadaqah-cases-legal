@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sadaqah Cases privacy policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* palette: warm neutral ground + deep teal accent (trust/community, not terracotta) */
+  /* type: Source Serif 4 for headings, Public Sans for body/UI */
+  /* layout: single scrolling column, sticky anchor nav on wide screens, stacked on phone */
+  :root{
+    --bg:#F6F4EF; --surface:#FFFFFF; --surface-2:#F0EEE6;
+    --fg:#22261E; --fg-muted:#5B6154; --fg-faint:#84897C;
+    --accent:#0E6B54; --accent-strong:#0A4F3E; --accent-fg:#FFFFFF;
+    --border:#E1DED4;
+    --font-display:'Source Serif 4', Georgia, serif;
+    --font-body:'Public Sans', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#141F1A; --surface:#1B2A23; --surface-2:#20302A;
+      --fg:#ECEEE7; --fg-muted:#A6AE9F; --fg-faint:#7C8477;
+      --accent:#4FC79E; --accent-strong:#72DBB4; --accent-fg:#0B1A15;
+      --border:#2B3B33;
+    }
+  }
+  *{ box-sizing:border-box; }
+  html, body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:var(--font-body); font-size:16px; line-height:1.7;
+    padding-inline:20px;
+  }
+  header.page{
+    max-width:720px; margin:0 auto; padding-block:48px 28px;
+    border-bottom:1px solid var(--border);
+  }
+  .eyebrow{
+    font-size:13px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 10px;
+  }
+  h1{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(28px,5vw,40px);
+    line-height:1.15; margin:0 0 10px; text-wrap:balance; color:var(--fg);
+  }
+  .updated{ color:var(--fg-muted); font-size:14px; margin:0; }
+  .layout{
+    display:grid; grid-template-columns:200px minmax(0,680px); gap:48px;
+    max-width:960px; margin:0 auto; padding-block:40px 80px;
+    justify-content:center;
+  }
+  nav.toc{ align-self:start; position:sticky; top:24px; }
+  nav.toc .label{
+    font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--fg-faint); margin:0 0 12px;
+  }
+  nav.toc ol{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+  nav.toc a{
+    color:var(--fg-muted); text-decoration:none; font-size:14px; line-height:1.4;
+    display:block; border-left:2px solid transparent; padding-left:10px;
+  }
+  nav.toc a:hover{ color:var(--accent); border-left-color:var(--accent); }
+  main{ min-width:0; }
+  .glance{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:24px; margin:0 0 40px; display:flex; flex-direction:column; gap:14px;
+  }
+  .glance h2{ font-family:var(--font-body); font-size:14px; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--fg-faint); margin:0; }
+  .glance ul{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+  .glance li{ display:flex; gap:12px; align-items:flex-start; font-size:15px; color:var(--fg); }
+  .glance li svg{ flex:none; margin-top:3px; color:var(--accent); }
+  section{ padding-block:28px; border-bottom:1px solid var(--border); scroll-margin-top:24px; }
+  section:last-of-type{ border-bottom:none; }
+  h2{
+    font-family:var(--font-display); font-weight:600; font-size:22px;
+    margin:0 0 14px; color:var(--fg); text-wrap:balance;
+  }
+  h3{
+    font-family:var(--font-body); font-weight:600; font-size:15px;
+    margin:22px 0 8px; color:var(--fg);
+  }
+  p{ margin:0 0 14px; color:var(--fg); max-width:65ch; }
+  p.muted{ color:var(--fg-muted); font-size:14px; }
+  ul.plain{ margin:0 0 14px; padding-left:20px; }
+  ul.plain li{ margin-bottom:8px; max-width:62ch; }
+  a{ color:var(--accent-strong); }
+  code{
+    font-family:var(--font-body); background:var(--surface-2); padding:1px 6px;
+    border-radius:4px; font-size:14px;
+  }
+  .contact-box{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:22px 24px; display:flex; flex-direction:column; gap:6px;
+  }
+  .contact-box .who{ font-weight:600; }
+  footer.page{
+    max-width:720px; margin:0 auto; padding-block:0 60px; color:var(--fg-faint); font-size:13px;
+  }
+  @media (max-width:760px){
+    .layout{ grid-template-columns:1fr; gap:24px; padding-block:28px 60px; }
+    nav.toc{ position:static; border:1px solid var(--border); border-radius:10px; padding:16px 18px; background:var(--surface); }
+    nav.toc ol{ flex-direction:row; flex-wrap:wrap; gap:10px 16px; }
+    nav.toc a{ border-left:none; padding-left:0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page">
+  <p class="eyebrow">Sadaqah Cases</p>
+  <h1>Privacy policy</h1>
+  <p class="updated">Last updated September 30, 2026</p>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Sections">
+    <p class="label">On this page</p>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#collect">Information we collect</a></li>
+      <li><a href="#use">How we use it</a></li>
+      <li><a href="#sharing">Third-party services</a></li>
+      <li><a href="#retention">Data retention</a></li>
+      <li><a href="#choices">Your choices</a></li>
+      <li><a href="#children">Children's privacy</a></li>
+      <li><a href="#security">Data security</a></li>
+      <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#contact">Contact us</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <div class="glance">
+      <h2>At a glance</h2>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>We never process donations or handle payment or bank information — "Donate" only links out to an organization's own page.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Browsing the app never requires an account. Only a small number of admitted organizers sign in.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>We don't access your device's location, use advertising SDKs, or sell your information.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Cases you follow and your personal donation checklist stay on your device — we never see them.</li>
+      </ul>
+    </div>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>Sadaqah Cases is a mobile app, published by ZakatWealthPro, that lets a community post and browse charitable help requests — medical bills, rent, utilities, and similar needs — organized by category and region. The app never processes donations itself: it only links out to each organization's own donation page.</p>
+      <p>This policy covers two different groups of people who use the app: <strong>visitors</strong>, who browse cases, follow updates, and can optionally report a concern without ever creating an account, and <strong>organizers</strong> — a small number of admitted volunteers who sign in with an email and password to post and manage cases on behalf of an organization.</p>
+    </section>
+
+    <section id="collect">
+      <h2>Information we collect</h2>
+
+      <h3>If you're browsing as a visitor</h3>
+      <p>You never create an account to browse the app, follow cases, or read updates. We collect:</p>
+      <ul class="plain">
+        <li>Anonymous interaction counts — views, taps on a "Donate" link, and shares — tied to a case, not to you. These help organizers understand engagement and are never shown publicly.</li>
+        <li>If you choose to report a concern about a case: the reason you select, and an optional note, phone number, or email address, only if you choose to provide one. Reports are anonymous unless you voluntarily include contact details.</li>
+        <li>A device-level push notification identifier, if you enable notifications, used only to deliver the topics you've subscribed to.</li>
+      </ul>
+
+      <h3>Kept only on your device, never sent to us</h3>
+      <p>The app stores some information locally on your device and never transmits it to our servers:</p>
+      <ul class="plain">
+        <li>Which cases you've followed or saved.</li>
+        <li>Your notification preferences.</li>
+        <li>A personal, private checklist of which cases you've marked as "intending to donate" or "donated" — a reminder for you only. It isn't a record of any actual payment, and we have no way to see it.</li>
+      </ul>
+      <p class="muted">Uninstalling the app, or clearing its storage, permanently deletes this local information.</p>
+
+      <h3>If you're an admitted organizer</h3>
+      <p>Organizer accounts are created by an existing organizer, not through public sign-up. We collect:</p>
+      <ul class="plain">
+        <li>Your email address and password, managed securely by our authentication provider. We never see or store your password ourselves.</li>
+        <li>Your organizer status: role, verification status, and who added you and when.</li>
+        <li>The content you submit when posting or editing a case — title, description, category, location, the organization's name and contact details, an optional photo, and an optional donation link and fundraising goal. Case listings are public appeals, so this information is publicly visible in the app.</li>
+      </ul>
+
+      <h3>Collected automatically</h3>
+      <ul class="plain">
+        <li>Anonymous crash and performance diagnostics — device model, operating system version, app version, and crash logs — to help us fix bugs. This isn't linked to your identity.</li>
+        <li>Device integrity signals confirming requests come from a genuine, unmodified copy of the app, via Apple App Attest/DeviceCheck on iOS and Google Play Integrity on Android. This is standard anti-abuse tooling and doesn't identify you personally.</li>
+      </ul>
+
+      <h3>What we don't collect</h3>
+      <ul class="plain">
+        <li>Your precise location. Any location shown on a case, such as a city, is text typed in by the organizer who posted it — never derived from your device's GPS.</li>
+        <li>Payment, financial, or bank information of any kind. "Donate" links only open an organization's own external donation page in your browser.</li>
+        <li>Advertising or tracking data — the app doesn't use ad SDKs, and we don't sell or share information for advertising.</li>
+      </ul>
+    </section>
+
+    <section id="use">
+      <h2>How we use it</h2>
+      <p>We use the information above only to:</p>
+      <ul class="plain">
+        <li>Operate core features — showing cases, delivering the notifications you've opted into, and letting organizers post and manage cases.</li>
+        <li>Investigate reported concerns about a case.</li>
+        <li>Diagnose and fix crashes and technical problems.</li>
+        <li>Prevent abuse of the app's posting features, through organizer accounts and device attestation.</li>
+      </ul>
+      <p>We don't use your information for advertising, and we don't sell it to third parties.</p>
+    </section>
+
+    <section id="sharing">
+      <h2>Third-party services</h2>
+      <p>The app is built on Google Firebase. These Firebase services process data as described above, under Google's own privacy and data-processing terms:</p>
+      <ul class="plain">
+        <li>Firebase Authentication — organizer sign-in</li>
+        <li>Cloud Firestore — case data, reports, organizer records</li>
+        <li>Cloud Storage for Firebase — case photos</li>
+        <li>Cloud Functions for Firebase — organizer account management</li>
+        <li>Firebase Cloud Messaging — push notifications</li>
+        <li>Firebase Crashlytics — crash diagnostics</li>
+        <li>Firebase App Check, with Apple App Attest/DeviceCheck and Google Play Integrity — device attestation</li>
+      </ul>
+      <p>We don't share your information with any other third party, except where required by law.</p>
+    </section>
+
+    <section id="retention">
+      <h2>Data retention</h2>
+      <ul class="plain">
+        <li>Public case content is retained until an organizer deletes it or closes the case.</li>
+        <li>Reports about a case are retained for as long as needed to review them, and stay visible only to organizers.</li>
+        <li>Crash diagnostics and device attestation data follow Firebase's own default retention periods.</li>
+        <li>Anything stored only on your device — followed cases, notification preferences, your personal donation checklist — stays there until you clear it yourself.</li>
+      </ul>
+    </section>
+
+    <section id="choices">
+      <h2>Your choices</h2>
+      <ul class="plain">
+        <li><strong>Notifications</strong> — turn off any notification topic from within the app, or disable notifications entirely in your device settings.</li>
+        <li><strong>Local data</strong> — clear the app's storage, or uninstall it, to remove everything stored only on your device.</li>
+        <li><strong>Organizer account deletion</strong> — contact us using the details below to request deletion of your account and associated data.</li>
+        <li><strong>Reports and case content</strong> — contact us if you'd like a case, report, or piece of contact information removed.</li>
+      </ul>
+    </section>
+
+    <section id="children">
+      <h2>Children's privacy</h2>
+      <p>Sadaqah Cases isn't directed at children, and we don't knowingly collect personal information from anyone under 13. If you believe a child has provided us with personal information, contact us and we'll remove it.</p>
+    </section>
+
+    <section id="security">
+      <h2>Data security</h2>
+      <p>We rely on Firebase's security infrastructure, including access-controlled rules that govern who can read or write each piece of data. No method of electronic storage or transmission is completely secure, and we can't guarantee absolute security.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy as the app changes. We'll update the "last updated" date at the top of this page when we do. Continued use of the app after a change means you accept the updated policy.</p>
+    </section>
+
+    <section id="contact" style="border-bottom:none;">
+      <h2>Contact us</h2>
+      <p>Questions about this policy, or requests related to your information, can be sent to:</p>
+      <div class="contact-box">
+        <p class="who">ZakatWealthPro — Sadaqah Cases</p>
+        <p style="margin:0;"><a href="mailto:privacy@zakatwealthpro.com">privacy@zakatwealthpro.com</a></p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="page">
+  <p>This page is the privacy policy for the Sadaqah Cases mobile app.</p>
+  <p><a href="terms-of-service.html">Read our Terms of Service →</a></p>
+</footer>
+
+</body>
+</html>
