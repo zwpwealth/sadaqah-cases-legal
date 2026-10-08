@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sadaqah Cases support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* palette: warm neutral ground + deep teal accent (trust/community, not terracotta) */
+  /* type: Source Serif 4 for headings, Public Sans for body/UI */
+  /* layout: single scrolling column, sticky anchor nav on wide screens, stacked on phone */
+  :root{
+    --bg:#F6F4EF; --surface:#FFFFFF; --surface-2:#F0EEE6;
+    --fg:#22261E; --fg-muted:#5B6154; --fg-faint:#84897C;
+    --accent:#0E6B54; --accent-strong:#0A4F3E; --accent-fg:#FFFFFF;
+    --border:#E1DED4;
+    --font-display:'Source Serif 4', Georgia, serif;
+    --font-body:'Public Sans', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#141F1A; --surface:#1B2A23; --surface-2:#20302A;
+      --fg:#ECEEE7; --fg-muted:#A6AE9F; --fg-faint:#7C8477;
+      --accent:#4FC79E; --accent-strong:#72DBB4; --accent-fg:#0B1A15;
+      --border:#2B3B33;
+    }
+  }
+  *{ box-sizing:border-box; }
+  html, body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:var(--font-body); font-size:16px; line-height:1.7;
+    padding-inline:20px;
+  }
+  header.page{
+    max-width:720px; margin:0 auto; padding-block:48px 28px;
+    border-bottom:1px solid var(--border);
+  }
+  .eyebrow{
+    font-size:13px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 10px;
+  }
+  h1{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(28px,5vw,40px);
+    line-height:1.15; margin:0 0 10px; text-wrap:balance; color:var(--fg);
+  }
+  .updated{ color:var(--fg-muted); font-size:14px; margin:0; }
+  .layout{
+    display:grid; grid-template-columns:200px minmax(0,680px); gap:48px;
+    max-width:960px; margin:0 auto; padding-block:40px 80px;
+    justify-content:center;
+  }
+  nav.toc{ align-self:start; position:sticky; top:24px; }
+  nav.toc .label{
+    font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--fg-faint); margin:0 0 12px;
+  }
+  nav.toc ol{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+  nav.toc a{
+    color:var(--fg-muted); text-decoration:none; font-size:14px; line-height:1.4;
+    display:block; border-left:2px solid transparent; padding-left:10px;
+  }
+  nav.toc a:hover{ color:var(--accent); border-left-color:var(--accent); }
+  main{ min-width:0; }
+  .glance{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:24px; margin:0 0 40px; display:flex; flex-direction:column; gap:14px;
+  }
+  .glance h2{ font-family:var(--font-body); font-size:14px; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--fg-faint); margin:0; }
+  .glance ul{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+  .glance li{ display:flex; gap:12px; align-items:flex-start; font-size:15px; color:var(--fg); }
+  .glance li svg{ flex:none; margin-top:3px; color:var(--accent); }
+  section{ padding-block:28px; border-bottom:1px solid var(--border); scroll-margin-top:24px; }
+  section:last-of-type{ border-bottom:none; }
+  h2{
+    font-family:var(--font-display); font-weight:600; font-size:22px;
+    margin:0 0 14px; color:var(--fg); text-wrap:balance;
+  }
+  h3{
+    font-family:var(--font-body); font-weight:600; font-size:15px;
+    margin:22px 0 8px; color:var(--fg);
+  }
+  p{ margin:0 0 14px; color:var(--fg); max-width:65ch; }
+  p.muted{ color:var(--fg-muted); font-size:14px; }
+  ul.plain{ margin:0 0 14px; padding-left:20px; }
+  ul.plain li{ margin-bottom:8px; max-width:62ch; }
+  a{ color:var(--accent-strong); }
+  code{
+    font-family:var(--font-body); background:var(--surface-2); padding:1px 6px;
+    border-radius:4px; font-size:14px;
+  }
+  .contact-box{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:22px 24px; display:flex; flex-direction:column; gap:6px;
+  }
+  .contact-box .who{ font-weight:600; }
+  footer.page{
+    max-width:720px; margin:0 auto; padding-block:0 60px; color:var(--fg-faint); font-size:13px;
+  }
+  @media (max-width:760px){
+    .layout{ grid-template-columns:1fr; gap:24px; padding-block:28px 60px; }
+    nav.toc{ position:static; border:1px solid var(--border); border-radius:10px; padding:16px 18px; background:var(--surface); }
+    nav.toc ol{ flex-direction:row; flex-wrap:wrap; gap:10px 16px; }
+    nav.toc a{ border-left:none; padding-left:0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page">
+  <p class="eyebrow">Sadaqah Cases</p>
+  <h1>Support</h1>
+  <p class="updated">Last updated October 8, 2026</p>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Sections">
+    <p class="label">On this page</p>
+    <ol>
+      <li><a href="#contact">Contact us</a></li>
+      <li><a href="#using">Using the app</a></li>
+      <li><a href="#donations">Donations</a></li>
+      <li><a href="#organizers">For organizations</a></li>
+      <li><a href="#privacy">Your information</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <div class="glance">
+      <h2>Quick answers</h2>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>You don't need an account to browse, follow cases, or report a concern.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>The app never handles payments. "Donate" opens the organization's own page.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Something looks wrong on a case? Tap "Report a concern" at the bottom of it.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Anything else: email <a href="mailto:info@zakatwealthpro.com">info@zakatwealthpro.com</a>.</span></li>
+      </ul>
+    </div>
+
+    <section id="contact">
+      <h2>Contact us</h2>
+      <p>For help with the app, a problem with a case, or a request about your information, email us:</p>
+      <div class="contact-box">
+        <p class="who">ZakatWealthPro — Sadaqah Cases</p>
+        <p style="margin:0;"><a href="mailto:info@zakatwealthpro.com">info@zakatwealthpro.com</a></p>
+      </div>
+      <h3>What to include</h3>
+      <ul class="plain">
+        <li>What happened, and what you expected to happen.</li>
+        <li>Your iPhone or iPad model and iOS version.</li>
+        <li>The app version (shown on the app's App Store or TestFlight page).</li>
+        <li>The title of the case, if your message is about one.</li>
+        <li>A screenshot, if you have one.</li>
+      </ul>
+      <p class="muted">Please never send a password.</p>
+    </section>
+
+    <section id="using">
+      <h2>Using the app</h2>
+
+      <h3>Do I need an account?</h3>
+      <p>No. You can browse, search, filter, follow cases, share a case, and report a concern without signing in. Only organizations that post cases have accounts.</p>
+
+      <h3>How do I get notified about a case, or about new cases?</h3>
+      <p>Open a case and tap <strong>Follow for updates</strong> to be notified when the organizer posts an update. To hear about new cases, tap the bell icon on the main screen and choose <strong>All new cases</strong>, <strong>Only these categories</strong>, or <strong>Off</strong>. The bookmark icon lists every case you follow.</p>
+      <p>If you tapped Don't Allow when asked about notifications, turn them back on in iOS Settings under Notifications, then Sadaqah Cases.</p>
+
+      <h3>How do I stop notifications?</h3>
+      <p>Tap <strong>Following</strong> on a case to stop following it, set new-case notifications to <strong>Off</strong> with the bell icon, or turn notifications off for the app in iOS Settings.</p>
+
+      <h3>Something on a case looks wrong or suspicious.</h3>
+      <p>Open the case, scroll to the bottom, and tap <strong>Report a concern</strong>. Choose a reason and add a note. You can add a phone number or email if you'd like the organizers to follow up (the form tells you when one is required). Reports go only to the organizers who manage that case. If the form won't open, or you think a case is urgent, email us with the case title.</p>
+
+      <h3>The app isn't loading, or something is broken.</h3>
+      <p>Check your connection (the app shows a banner when it can't reach the internet), close and reopen the app, and make sure you have the latest version. If it keeps happening, email us with the details above.</p>
+    </section>
+
+    <section id="donations">
+      <h2>Donations</h2>
+
+      <h3>Does the app take donations?</h3>
+      <p>No. Sadaqah Cases never processes donations or handles payment or bank details. The <strong>Donate</strong> button opens the organization's own donation page in your browser, and what happens there is between you and that organization.</p>
+
+      <h3>I have a problem with a donation, a receipt, or a refund.</h3>
+      <p>We can't see, change, or refund a donation, because it's made on the organization's own site. Contact the organization directly using the call and email buttons on the case page, or through its donation page. If you believe a case is fraudulent or misleading, please report it as described above.</p>
+    </section>
+
+    <section id="organizers">
+      <h2>For organizations</h2>
+
+      <h3>How does my organization post cases?</h3>
+      <p>Tap the shield icon at the top right of the main screen, then <strong>Request organizer access</strong>. Enter your organization's name, your name, your email address, and a short description. An existing organizer reviews each request, and we email you the decision at the address you gave. Nothing is approved automatically, and we only email you after a decision is made.</p>
+
+      <h3>I was approved but can't sign in, or I didn't get the email.</h3>
+      <p>Check your spam folder. On the sign-in screen, tap <strong>Forgot password?</strong> to set or reset your password. If you're still stuck, email us from the address you applied with.</p>
+
+      <h3>How do I delete my organizer account?</h3>
+      <p>Sign in, open <strong>Manage Cases</strong>, and tap <strong>Delete my account</strong> at the top of the screen. This removes your sign-in and account details. Cases you posted stay visible until you or another organizer removes them. Email us if you'd like one taken down.</p>
+
+      <h3>Why can't I add a photo to a case?</h3>
+      <p>Photo uploads are temporarily paused while we add photo moderation. A case that already has a photo still shows it.</p>
+    </section>
+
+    <section id="privacy" style="border-bottom:none;">
+      <h2>Your information</h2>
+      <p>What the app collects, and your choices, are explained in the <a href="privacy-policy.html">Privacy Policy</a>. To ask us to remove a case, a report, or a piece of contact information, email us and tell us what you'd like removed. The rules for using the app are in the <a href="terms-of-service.html">Terms of Service</a>.</p>
+    </section>
+  </main>
+</div>
+
+<footer class="page">
+  <p>This page is the support page for the Sadaqah Cases mobile app.</p>
+  <p><a href="privacy-policy.html">Privacy Policy →</a> &nbsp; <a href="terms-of-service.html">Terms of Service →</a></p>
+</footer>
+
+</body>
+</html>
